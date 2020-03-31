@@ -1,0 +1,23 @@
+{
+  "name": "vanilla-ts",
+  "version": "1.0.0",
+  "description": "JavaScript and TypeScript example starter project",
+  "scripts": {
+    "start": "node src/index.js",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@stoplight/prism-core": "3.3.2",
+    "@stoplight/prism-http": "3.3.2",
+    "@stoplight/prism-http-server": "3.3.2",
+    "fp-ts": "1.19.5",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  },
+  "keywords": [
+    "typescript",
+    "javascript"
+  ]
+}
