@@ -1,6 +1,7 @@
 import { getHttpOperationsFromResource } from "@stoplight/prism-http";
 import { createServer } from "@stoplight/prism-http-server";
 import { tryCatch } from "fp-ts/lib/TaskEither";
+import { toError } from 'fp-ts/lib/Either'
 
 class MyCustomLogger {
   static WriteInfoLog(m: any): void {
@@ -24,7 +25,7 @@ class MyCustomLogger {
 }
 
 async function createMockServer() {
-  const operations = await getHttpOperationsFromResource("../petstore.yaml");
+  const operations = await getHttpOperationsFromResource("./petstore.yaml");
   return createServer(operations, {
     components: { logger: MyCustomLogger },
     config: {
@@ -38,7 +39,7 @@ async function createMockServer() {
   });
 }
 
-tryCatch(createMockServer, () => new Error("server failed to start"))
+tryCatch(createMockServer, toError)
   .fold(
     (e: Error) => console.error(e),
     () => console.log("server started")
