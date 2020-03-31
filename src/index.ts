@@ -36,7 +36,7 @@ async function createMockServer() {
       mock: { dynamic: false }
     },
     cors: true
-  });
+  }).listen(3000);
 }
 
 tryCatch(createMockServer, toError)
